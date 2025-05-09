@@ -4,7 +4,32 @@
 
 ## Description
 
-Our Resume Builder is a streamlined webapp that allows users to easily build a formatted resume. It also stores users' generated resumes to be accessed at will.
+This project is a software engineering exercise designed to demonstrate the integration of multiple subsystems, database management, containerization, deployment, and continuous integration/continuous deployment (CI/CD) practices. The project consists of a web application built with Python and a MongoDB database, orchestrated using Docker and deployed with GitHub Actions and Render.
+
+### Features
+
+- Subsystems: The project contains two primary subsystems:
+
+    - A MongoDB database for storing user data and generated resumes.
+
+    - A Python-based web application that serves as the interface for users to build, store, and access resumes.
+
+- Dockerization: Each subsystem is containerized with its own Dockerfile, and the images are hosted on Docker Hub.
+
+- CI/CD: Each subsystem is integrated with GitHub Actions for continuous integration and deployment. The CI/CD pipelines:
+
+- Trigger on code changes (via push or pull request to the main or master branch).
+
+- Build and test each subsystem.
+
+- Deliver the Docker images to Docker Hub.
+
+- Deploy the subsystems that are designed to run online to Render.
+
+- Testing: The codebase contains unit tests with at least 80% test coverage for both subsystems.
+
+<img src="public/login.png" alt="alt text" width="350"/>
+<img src="public/gen.png" alt="alt text" width="350"/>
 
 ## Docker Image
 
