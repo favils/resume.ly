@@ -13,7 +13,7 @@ You can access the Docker image for **resume.ly** on Docker Hub:
 [**resume.ly Docker Image**](https://hub.docker.com/r/fav2019/flask-app)
 
 ## Try it out yourself
-[Live Link](https://hammerhead-app-jz7oy.ondigitalocean.app/) 
+[Live Link](https://resume-generator-bxf0.onrender.com/login) 
 
 ## Run the App
 
@@ -22,7 +22,7 @@ You can access the Docker image for **resume.ly** on Docker Hub:
 Before running the app, ensure your `.env` file in the `web_app` directory contains the following MongoDB URI configuration:
 
 ```
-MONGO_URI=mongodb://mongodb:27017/
+MONGO_URI=mongodb+srv://user:pass@cluster0.5hb4r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 Start by building:
@@ -39,17 +39,6 @@ docker-compose up
 
 Once that is completed, you can access the site [HERE](http://localhost:8080/)
 
-
-
-## Team Members
-
-[Shray Awasti](https://github.com/shrayawasti)
-
-[Safia Billah](https://github.com/safiabillah)
-
-[Fatima Villena](https://github.com/favils)
-
-[Melanie Zhang](https://github.com/melanie-y-zhang)
 
 ## Test Coverage
 
