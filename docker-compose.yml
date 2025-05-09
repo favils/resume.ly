@@ -1,27 +1,19 @@
-services:
-  mongodb:
-    image: mongo
-    container_name: mongodb
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-    restart: always
+version: '3.9'
 
-  flask-app:
-    build:
-      context: ./web_app
-    container_name: flask-app
+services:
+  web:
+    build: .
     ports:
-      - "8080:8080"  
+      - "5000:5000"
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/
+      - MONGO_URI=mongodb://mongo:27017/resume_db
     depends_on:
-      - mongodb
-    restart: always
+      - mongo
+
+  mongo:
+    image: mongo:7.0
+    volumes:
+      - mongo_data:/data/db
 
 volumes:
-  mongodb_data:
+  mongo_data:
