@@ -1,24 +1,21 @@
-# Use a lightweight Python image
-FROM python:3.9-slim
+FROM python:3.10-slim
 
-# Set working directory
+# for latex
+RUN apt-get update && \
+    apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended latexmk && \
+    apt-get clean
+
+# wd
 WORKDIR /app
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    texlive-latex-base \
-    texlive-latex-extra \
-    texlive-fonts-recommended \
-    texlive-xetex \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy requirements and install Python dependencies
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the app
+# copey
 COPY . .
 
-EXPOSE 8080
+# install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+# set environment variables
+ENV PYTHONUNBUFFERED=1
+
+# start the app
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "main:create_app()"]
