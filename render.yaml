@@ -4,5 +4,5 @@ services:
     env: docker
     plan: free
     repo: https://github.com/favils/resume.ly
-    dockerContext: .
+    dockerContext: ./web_app
     dockerfilePath: ./web_app/Dockerfile
